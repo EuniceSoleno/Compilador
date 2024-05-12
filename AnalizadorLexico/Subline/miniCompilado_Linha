@@ -1,0 +1,20 @@
+public static void main(String[] args) {
+    ArrayList <String> dado = new ArrayList<>();
+        File arquivo = new File("arquivo.txt");
+        int lineNumber;
+
+        try (FileReader fr = new FileReader(arquivo);
+             BufferedReader br = new BufferedReader(fr)) {
+
+            String linha;
+            String frase;
+            while ((linha = br.readLine()) != null) {
+               frase = linha.split(' ');
+               dado.add(frase);
+               lineNumber++;
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+}
