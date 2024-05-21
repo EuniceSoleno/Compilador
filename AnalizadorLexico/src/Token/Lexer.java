@@ -1,7 +1,4 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
+
 package Token;
 
 import java.io.FileNotFoundException;
@@ -10,10 +7,6 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
 
-/**
- *
- * @author eunice
- */
 public class Lexer {
 
     private FileReader file;
@@ -331,12 +324,37 @@ public class Lexer {
                                             return new TokenPair(lexema.toString(), Token.TOKEN_RETURN, lineNumber);
                                         case "short":
                                             return new TokenPair(lexema.toString(), Token.TOKEN_SHORT, lineNumber);
-                                        /*"return", "short", "static", "strictfp",
-            "super", "switch", "", "this", "throw", "throws", "transient", "try", "void",
-            "volatile", "while", "true", "false", "null"*/
+
+                                        case "strictfp":
+                                            return new TokenPair(lexema.toString(), Token.TOKEN_STRICTFP, lineNumber);
+                                        case "while":
+                                            return new TokenPair(lexema.toString(), Token.TOKEN_WHILE, lineNumber);
+
+                                        case "try":
+                                            return new TokenPair(lexema.toString(), Token.TOKEN_TRY, lineNumber);
+                                        case "void":
+                                            return new TokenPair(lexema.toString(), Token.TOKEN_VOID, lineNumber);
+                                        case "volatile":
+                                            return new TokenPair(lexema.toString(), Token.TOKEN_VOLATILE, lineNumber);
+                                        case "null":
+                                            return new TokenPair(lexema.toString(), Token.TOKEN_NULL, lineNumber);
+                                        case "false":
+                                            return new TokenPair(lexema.toString(), Token.TOKEN_FALSE, lineNumber);
+                                        case "true":
+                                            return new TokenPair(lexema.toString(), Token.TOKEN_TRUE, lineNumber);
+
+                                        case "super":
+                                            return new TokenPair(lexema.toString(), Token.TOKEN_SUPER, lineNumber);
+                                        case "transient":
+                                            return new TokenPair(lexema.toString(), Token.TOKEN_TRANSIENT, lineNumber);
+                                        case "switch":
+                                            return new TokenPair(lexema.toString(), Token.TOKEN_SWITCH, lineNumber);
+
                                         case "static":
                                             return new TokenPair(lexema.toString(), Token.TOKEN_STATIC, lineNumber);
-                                        case "strictfp":
+                                        case "this":
+                                            return new TokenPair(lexema.toString(), Token.TOKEN_THIS, lineNumber);
+                                        case "throw":
                                             return new TokenPair(lexema.toString(), Token.TOKEN_STRICTFP, lineNumber);
                                         case "synchronized":
                                             return new TokenPair(lexema.toString(), Token.TOKEN_STRICTFP, lineNumber);
