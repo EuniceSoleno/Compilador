@@ -1,4 +1,3 @@
-
 package Token;
 
 import java.io.FileNotFoundException;
@@ -113,14 +112,38 @@ public class Lexer {
 
                         } else if (caracter == '/') {
                             proximoCaracter = (char) lerProximoCaracter();
-                            if (proximoCaracter == '=') {
-                                lexema.append(caracter);
-                                lexema.append(proximoCaracter);
-                                state = 21;
-                            } else {
-                                lexema.append(caracter);
-                                state = 9;
+                    switch (proximoCaracter) {
+                        case '=':
+                            lexema.append(caracter);
+                            lexema.append(proximoCaracter);
+                            state = 21;
+                            break;
+                        case '/':
+                            while (caracter != '\n' && caracter != -1) {
+                                caracter = (char) lerProximoCaracter();
                             }
+                            state = 0;
+                            break;
+                        case '*':
+                            while (true) {
+                                caracter = (char) lerProximoCaracter();
+                                if (caracter == '*') {
+                                    caracter = (char) lerProximoCaracter();
+                                    if (caracter == '/') {
+                                        break;
+                                    }
+                                }
+                                if (caracter == -1) {
+                                    throw new IOException("Fim de arquivo encontrado dentro de um comentário de múltiplas linhas");
+                                }
+                            }
+                            state = 0;
+                            break;
+                        default:
+                            lexema.append(caracter);
+                            state = 9;
+                            break;
+                    }
 
                         } else if (caracter == '<') {
                             proximoCaracter = (char) lerProximoCaracter();
