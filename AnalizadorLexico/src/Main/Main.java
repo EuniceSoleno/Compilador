@@ -2,9 +2,11 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package Token;
+package Main;
 
 import java.io.IOException;
+import Sintatico.Parser;
+
 
 /**
  *
@@ -12,9 +14,10 @@ import java.io.IOException;
  */
 public class Main {
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException {
+       
 
-        try {
+        /*try {
 
             Lexer lexer = new Lexer("ficheiro.txt");
             TokenPair token;
@@ -30,7 +33,10 @@ public class Main {
             lexer.close();
         } catch (IOException ex) {
             System.out.println("erro");
-        }
+        }*/
+        
+        Parser parser = new Parser("ficheiro.txt");
+        parser.parse();
 
     }
 

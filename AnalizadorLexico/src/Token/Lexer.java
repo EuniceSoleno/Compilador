@@ -1,5 +1,6 @@
 package Token;
 
+import Sintatico.Parser;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
@@ -11,6 +12,8 @@ public class Lexer {
     private FileReader file;
     private char caracter;
     int lineNumber;
+
+
     ArrayList<String> reservedWords = new ArrayList<>(Arrays.asList(
             "abstract", "assert", "boolean", "break", "byte", "case", "catch", "char", "class", "const",
             "continue", "default", "do", "double", "else", "enum", "extends", "final", "finally", "float",
@@ -39,7 +42,7 @@ public class Lexer {
         int prox = file.read();
         return prox;
     }
-
+    
     //reconhecer Lexema
     public TokenPair lerLexema() {
         try {
@@ -112,38 +115,38 @@ public class Lexer {
 
                         } else if (caracter == '/') {
                             proximoCaracter = (char) lerProximoCaracter();
-                    switch (proximoCaracter) {
-                        case '=':
-                            lexema.append(caracter);
-                            lexema.append(proximoCaracter);
-                            state = 21;
-                            break;
-                        case '/':
-                            while (caracter != '\n' && caracter != -1) {
-                                caracter = (char) lerProximoCaracter();
-                            }
-                            state = 0;
-                            break;
-                        case '*':
-                            while (true) {
-                                caracter = (char) lerProximoCaracter();
-                                if (caracter == '*') {
-                                    caracter = (char) lerProximoCaracter();
-                                    if (caracter == '/') {
-                                        break;
+                            switch (proximoCaracter) {
+                                case '=':
+                                    lexema.append(caracter);
+                                    lexema.append(proximoCaracter);
+                                    state = 21;
+                                    break;
+                                case '/':
+                                    while (caracter != '\n' && caracter != -1) {
+                                        caracter = (char) lerProximoCaracter();
                                     }
-                                }
-                                if (caracter == -1) {
-                                    throw new IOException("Fim de arquivo encontrado dentro de um comentário de múltiplas linhas");
-                                }
+                                    state = 0;
+                                    break;
+                                case '*':
+                                    while (true) {
+                                        caracter = (char) lerProximoCaracter();
+                                        if (caracter == '*') {
+                                            caracter = (char) lerProximoCaracter();
+                                            if (caracter == '/') {
+                                                break;
+                                            }
+                                        }
+                                        if (caracter == -1) {
+                                            throw new IOException("Fim de arquivo encontrado dentro de um comentário de múltiplas linhas");
+                                        }
+                                    }
+                                    state = 0;
+                                    break;
+                                default:
+                                    lexema.append(caracter);
+                                    state = 9;
+                                    break;
                             }
-                            state = 0;
-                            break;
-                        default:
-                            lexema.append(caracter);
-                            state = 9;
-                            break;
-                    }
 
                         } else if (caracter == '<') {
                             proximoCaracter = (char) lerProximoCaracter();
@@ -474,7 +477,9 @@ public class Lexer {
 
                 }
                 incrementCurrentLine(caracter);
+                /*Parser parse = new Parser(lexema.toString(),lineNumber);*/
                 caracter = (char) file.read();
+               
             }
 
         } catch (IOException ex) {
@@ -482,12 +487,15 @@ public class Lexer {
             System.out.println("Erro ao ler os simbolos!" + ex.getMessage());
         }
 
-        return new TokenPair(
-                "", Token.TOKEN_END, lineNumber);
+        return new TokenPair("", Token.TOKEN_END, lineNumber);
     }
 
     public void close() throws IOException {
         file.close();
+    }
+
+    public TokenPair getNextToken() {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 
 }

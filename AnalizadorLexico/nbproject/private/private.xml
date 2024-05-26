@@ -4,12 +4,11 @@
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
             <file>file:/home/eunice/Documentos/Documents/EINF/terceiro%20ano/Segundo_Semestre/Compiladores/MiniCompilador/AnalizadorLexico/src/Token/Lexer.java</file>
-            <file>file:/home/eunice/Documentos/Documents/EINF/terceiro%20ano/Segundo_Semestre/Compiladores/MiniCompilador/AnalizadorLexico/src/Token/LexemaInfo.java</file>
             <file>file:/home/eunice/Documentos/Documents/EINF/terceiro%20ano/Segundo_Semestre/Compiladores/MiniCompilador/AnalizadorLexico/src/Token/Token.java</file>
-            <file>file:/home/eunice/Documentos/Documents/EINF/terceiro%20ano/Segundo_Semestre/Compiladores/MiniCompilador/AnalizadorLexico/src/Token/Main.java</file>
-            <file>file:/home/eunice/Documentos/Documents/EINF/terceiro%20ano/Segundo_Semestre/Compiladores/MiniCompilador/AnalizadorLexico/src/Token/token.java</file>
-            <file>file:/home/eunice/Documentos/Documents/EINF/terceiro%20ano/Segundo_Semestre/Compiladores/MiniCompilador/AnalizadorLexico/src/Token/TokenPair.java</file>
+            <file>file:/home/eunice/Documentos/Documents/EINF/terceiro%20ano/Segundo_Semestre/Compiladores/MiniCompilador/AnalizadorLexico/src/Sintatico/Parser.java</file>
             <file>file:/home/eunice/Documentos/Documents/EINF/terceiro%20ano/Segundo_Semestre/Compiladores/MiniCompilador/AnalizadorLexico/ficheiro.txt</file>
+            <file>file:/home/eunice/Documentos/Documents/EINF/terceiro%20ano/Segundo_Semestre/Compiladores/MiniCompilador/AnalizadorLexico/src/Token/TokenPair.java</file>
+            <file>file:/home/eunice/Documentos/Documents/EINF/terceiro%20ano/Segundo_Semestre/Compiladores/MiniCompilador/AnalizadorLexico/src/Main/Main.java</file>
         </group>
     </open-files>
 </project-private>
